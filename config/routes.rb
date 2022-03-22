@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   use_doorkeeper
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Tokens from doorkeeper
+
+  # {host}/v1/{controller}
+  namespace :api, path: "" do
+    namespace :v1 do
+      # Clinics
+      resources :clinics, only: [:index, :create, :update]
+      get 'agendas_services', to: 'agendas#agendas_services'
+    end
+  end
 end

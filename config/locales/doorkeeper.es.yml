@@ -1,27 +1,28 @@
 es:
+  invalid_login: "Login invalido"
   activerecord:
     attributes:
       doorkeeper/application:
         name: 'Nombre'
-        redirect_uri: 'URI de redirecciÃ³n'
-        scopes: 'Ãmbitos'
+        redirect_uri: 'URI de redirección'
+        scopes: 'Ámbitos'
     errors:
       models:
         doorkeeper/application:
           attributes:
             redirect_uri:
               fragment_present: 'no puede contener un fragmento.'
-              invalid_uri: 'debe ser una URI vÃ¡lida.'
+              invalid_uri: 'debe ser una URI válida.'
               relative_uri: 'debe ser una URI absoluta.'
               secured_uri: 'debe ser una URI HTTPS/SSL.'
-              forbidden_uri: 'estÃ¡ prohibido por el servidor.'
+              forbidden_uri: 'está prohibido por el servidor.'
             scopes:
               not_match_configured: "doesn't match configured on the server."
 
   doorkeeper:
     applications:
       confirmations:
-        destroy: 'Â¿EstÃ¡s seguro?'
+        destroy: '¿Estás seguro?'
       buttons:
         edit: 'Editar'
         destroy: 'Eliminar'
@@ -35,26 +36,26 @@ es:
         redirect_uri: 'Usa una linea por URI'
         blank_redirect_uri: "Leave it blank if you configured your provider to use Client Credentials, Resource Owner Password Credentials or any other grant type that doesn't require redirect URI."
         native_redirect_uri: 'Usa %{native_redirect_uri} para test locales'
-        scopes: 'Separa los Ã¡mbitos con espacios. Deja en blanco para usar los Ã¡mbitos predeterminados.'
+        scopes: 'Separa los ámbitos con espacios. Deja en blanco para usar los ámbitos predeterminados.'
       edit:
-        title: 'Editar aplicaciÃ³n'
+        title: 'Editar aplicación'
       index:
         title: 'Tus aplicaciones'
-        new: 'Nueva aplicaciÃ³n'
+        new: 'Nueva aplicación'
         name: 'Nombre'
         callback_url: 'Callback URL'
         actions: 'Actions'
         confidential: 'Confidential?'
         confidentiality:
-          'yes': 'SÃ­'
+          'yes': 'Sí'
           'no': 'No'
       new:
-        title: 'Nueva aplicaciÃ³n'
+        title: 'Nueva aplicación'
       show:
-        title: 'AplicaciÃ³n: %{name}'
-        application_id: 'Identificador de aplicaciÃ³n'
+        title: 'Aplicación: %{name}'
+        application_id: 'Identificador de aplicación'
         secret: 'Secret'
-        scopes: 'Ãmbitos'
+        scopes: 'Ámbitos'
         confidential: 'Confidential'
         callback_urls: 'Callback urls'
         actions: 'Acciones'
@@ -66,20 +67,20 @@ es:
       error:
         title: 'Ha ocurrido un error'
       new:
-        title: 'AutorizaciÃ³n requerida'
-        prompt: 'Â¿Autorizas a %{client_name} para usar tu cuenta?'
-        able_to: 'EstÃ¡ aplicaciÃ³n tendrÃ¡ permisos para'
+        title: 'Autorización requerida'
+        prompt: '¿Autorizas a %{client_name} para usar tu cuenta?'
+        able_to: 'Está aplicación tendrá permisos para'
       show:
-        title: 'CÃ³digo de autorizaciÃ³n'
+        title: 'Código de autorización'
 
     authorized_applications:
       confirmations:
-        revoke: 'Â¿EstÃ¡s seguro?'
+        revoke: '¿Estás seguro?'
       buttons:
         revoke: 'Revocar'
       index:
         title: 'Tus aplicaciones autorizadas'
-        application: 'AplicaciÃ³n'
+        application: 'Aplicación'
         created_at: 'Creada el'
         date_format: '%d/%m/%Y %H:%M:%S'
 
@@ -89,44 +90,44 @@ es:
     errors:
       messages:
         # Common error messages
-        invalid_request: 'La peticiÃ³n no tiene un parÃ¡metro obligatorio, incluye un valor de parÃ¡metro incompatible, o tiene un formato incorrecto.'
-        invalid_redirect_uri: 'La uri de redirecciÃ³n no es valida.'
-        unauthorized_client: 'El cliente no tiene autorizaciÃ³n para realizar esta peticiÃ³n utilizando este mÃ©todo.'
-        access_denied: 'El propietario del recurso o el servidor de autorizaciÃ³n han denegado la peticiÃ³n.'
-        invalid_scope: 'El scope solicitado no es vÃ¡lido, es desconocido, o tiene un formato incorrecto.'
+        invalid_request: 'La petición no tiene un parámetro obligatorio, incluye un valor de parámetro incompatible, o tiene un formato incorrecto.'
+        invalid_redirect_uri: 'La uri de redirección no es valida.'
+        unauthorized_client: 'El cliente no tiene autorización para realizar esta petición utilizando este método.'
+        access_denied: 'El propietario del recurso o el servidor de autorización han denegado la petición.'
+        invalid_scope: 'El scope solicitado no es válido, es desconocido, o tiene un formato incorrecto.'
         invalid_code_challenge_method: 'The code challenge method must be plain or S256.'
-        server_error: 'El servidor de autorizaciÃ³n ha encontrado una condiciÃ³n inesperada que le ha impedido completar la peticiÃ³n.'
-        temporarily_unavailable: 'El servidor de autorizaciÃ³n no ha podido manejar la peticiÃ³n por una sobrecarga temporal o por mantenimiento del servidor.'
+        server_error: 'El servidor de autorización ha encontrado una condición inesperada que le ha impedido completar la petición.'
+        temporarily_unavailable: 'El servidor de autorización no ha podido manejar la petición por una sobrecarga temporal o por mantenimiento del servidor.'
 
         # Configuration error messages
-        credential_flow_not_configured: 'El flujo de credenciales del propietario del recurso ha fallado porque Doorkeeper.configure.resource_owner_from_credentials no estÃ¡ configurado.'
-        resource_owner_authenticator_not_configured: 'La bÃºsqueda del propietario del recurso ha fallado porque Doorkeeper.configure.resource_owner_authenticator no estÃ¡ configurado.'
+        credential_flow_not_configured: 'El flujo de credenciales del propietario del recurso ha fallado porque Doorkeeper.configure.resource_owner_from_credentials no está configurado.'
+        resource_owner_authenticator_not_configured: 'La búsqueda del propietario del recurso ha fallado porque Doorkeeper.configure.resource_owner_authenticator no está configurado.'
         admin_authenticator_not_configured: 'Access to admin panel is forbidden due to Doorkeeper.configure.admin_authenticator being unconfigured.'
 
         # Access grant errors
-        unsupported_response_type: 'El servidor de autorizaciÃ³n no soporta este tipo de respuesta.'
+        unsupported_response_type: 'El servidor de autorización no soporta este tipo de respuesta.'
 
         # Access token errors
-        invalid_client: 'La autenticaciÃ³n del cliente ha fallado por cliente desconocido, cliente no autenticado, o mÃ©todo de autenticaciÃ³n incompatible.'
-        invalid_grant: 'La autorizaciÃ³n proporcionada no es vÃ¡lida, ha expirado, se ha revocado, no coincide con la URI de redirecciÃ³n utilizada en la peticiÃ³n de autorizaciÃ³n, o ha sido solicitada por otro cliente.'
-        unsupported_grant_type: 'El tipo de autorizaciÃ³n no estÃ¡ soportada por el servidor de autorizaciÃ³n.'
-
+        invalid_client: 'La autenticación del cliente ha fallado por cliente desconocido, cliente no autenticado, o método de autenticación incompatible.'
+        invalid_grant: 'La autorización proporcionada no es válida, ha expirado, se ha revocado, no coincide con la URI de redirección utilizada en la petición de autorización, o ha sido solicitada por otro cliente.'
+        unsupported_grant_type: 'El tipo de autorización no está soportada por el servidor de autorización.'
+        
         invalid_token:
           revoked: "El token de acceso ha sido revocado"
           expired: "El token de acceso ha expirado"
-          unknown: "El token de acceso es invÃ¡lido"
+          unknown: "El token de acceso es inválido"
 
     flash:
       applications:
         create:
-          notice: 'AplicaciÃ³n creada.'
+          notice: 'Aplicación creada.'
         destroy:
-          notice: 'AplicaciÃ³n eliminada.'
+          notice: 'Aplicación eliminada.'
         update:
-          notice: 'AplicaciÃ³n actualizada.'
+          notice: 'Aplicación actualizada.'
       authorized_applications:
         destroy:
-          notice: 'AplicaciÃ³n revocada.'
+          notice: 'Aplicación revocada.'
 
     layouts:
       admin:
@@ -136,4 +137,4 @@ es:
           applications: 'Aplicaciones'
           home: 'Home'
       application:
-        title: 'AutorizaciÃ³n OAuth requerida'
+        title: 'Autorización OAuth requerida'

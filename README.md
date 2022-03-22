@@ -57,11 +57,20 @@
 	◦	$ bundle exec rails generate doorkeeper:install
 	◦	$ bundle exec rails generate doorkeeper:migration
 	◦	Modificar el archivo de la migracion que se genero, al final descomentar las dos lineas para crear llaves foraneas sobre la tabla de usuarios "users" que sera lo que se utilice para el logueo
+
+	////// tambien se modifica: t.references :application,    null: false
+	////// como: t.references :application
+	////// Porque?
+
+	
 	◦	Agregar la traduccion de doorkeeper a español es opcional, hay que buscar el archivo para agregarlo sobre config/locales
 10.	Correr las migraciones
 	•	$ rails db:migrate
 11.	Configurar sobre config/initializers las gemas que lo requieran, si no existe crear el archivo con el nombre de la gema (se corren al iniciar el proyecto sin imporatar el nombre)
 	•	Doorkeeper requiere cambios extras para usar solo contraseña sin utilizar una aplicacion asignada sobre cada usuario y la personalizacion del error cuando el token es invalido
+
+	/////// Como saber que cambios se necesitan?
+
 12.	Crear archivo lib/custom_token_error_response.rb
 	•	module CustomTokenErrorResponse
   def status
@@ -75,6 +84,8 @@
     }
   end
 end
+
+	////// Que hacen estas funciones?
 13.	Agregar sobre Rakefile que se carguen las tareas de limpiado de tokens viejos sobre doorkeeper (Doorkeeper::Rake.load_tasks)
 14.	Crear usuario de pruebas
 	•	$ rails c

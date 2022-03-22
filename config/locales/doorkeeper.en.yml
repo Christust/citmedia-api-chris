@@ -1,4 +1,5 @@
 en:
+  invalid_login: "Login invalid"
   activerecord:
     attributes:
       doorkeeper/application:
@@ -113,7 +114,6 @@ en:
         invalid_client: 'Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.'
         invalid_grant: 'The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client.'
         unsupported_grant_type: 'The authorization grant type is not supported by the authorization server.'
-
         invalid_token:
           revoked: "The access token was revoked"
           expired: "The access token expired"

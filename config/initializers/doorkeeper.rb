@@ -1,3 +1,6 @@
+# Cargar libreria de error personalizado
+Rails.application.config.autoload_paths += Dir[File.join(Rails.root, "lib", "custom_token_error_response.rb")].each {|l| require l }
+
 # frozen_string_literal: true
 
 Doorkeeper.configure do
@@ -11,6 +14,15 @@ Doorkeeper.configure do
     # Put your resource owner authentication logic here.
     # Example implementation:
     #   User.find_by(id: session[:user_id]) || redirect_to(new_user_session_url)
+    User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+  end
+
+  # For Password Grant
+  resource_owner_from_credentials do |routes|
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      user
+    end
   end
 
   # If you didn't skip applications controller from Doorkeeper routes in your application routes.rb
@@ -62,7 +74,7 @@ Doorkeeper.configure do
   # want to use API mode that will skip all the views management and change the way how
   # Doorkeeper responds to a requests.
   #
-  # api_only
+  api_only
 
   # Enforce token request content type to application/x-www-form-urlencoded.
   # It is not enabled by default to not break prior versions of the gem.
@@ -196,7 +208,7 @@ Doorkeeper.configure do
   # `grant_type` - the grant type of the request (see Doorkeeper::OAuth)
   # `scopes` - the requested scopes (see Doorkeeper::OAuth::Scopes)
   #
-  # use_refresh_token
+  use_refresh_token
 
   # Provide support for an owner to be assigned to each registered application (disabled by default)
   # Optional parameter confirmation: true (default: false) if you want to enforce ownership of
@@ -328,6 +340,7 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
   # grant_flows %w[authorization_code client_credentials]
+  grant_flows %w[password refresh_token]
 
   # Allows to customize OAuth grant flows that +each+ application support.
   # You can configure a custom block (or use a class respond to `#call`) that must
@@ -447,7 +460,14 @@ Doorkeeper.configure do
   # If you need to block the request at all, then configure your routes.rb or web-server
   # like nginx to forbid the request.
 
+  skip_authorization do
+    true
+  end
+
   # WWW-Authenticate Realm (default: "Doorkeeper").
   #
   # realm "Doorkeeper"
 end
+
+# Cargar error personalizado
+Doorkeeper::OAuth::ErrorResponse.send :prepend, CustomTokenErrorResponse
